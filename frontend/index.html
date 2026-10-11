@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap">
 
-<!-- Meta Pixel: set META_PIXEL_ID in the script at the bottom of this page -->
+<!-- Meta Pixel ID and the lead endpoint are set in config.js -->
 
 <style>
   :root {
@@ -297,16 +297,15 @@
     </section>
   </main>
 
+<script src="config.js"></script>
 <script>
 (function () {
   "use strict";
 
-  // TODO: paste the URL that should receive lead submissions (CRM webhook, Zoho, Google Apps Script, etc.)
-  // Until this is set, the thank-you screen still shows but the details are NOT sent anywhere.
-  const FORM_ENDPOINT = "";
-
-  // TODO: paste your Meta Pixel ID to track PageView + Lead events for your ads.
-  const META_PIXEL_ID = "";
+  // Settings live in config.js (see that file). While formEndpoint is "" leads are NOT sent anywhere.
+  const config = window.CARLTON_CONFIG || {};
+  const FORM_ENDPOINT = config.formEndpoint || "";
+  const META_PIXEL_ID = config.metaPixelId || "";
 
   if (META_PIXEL_ID) {
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?

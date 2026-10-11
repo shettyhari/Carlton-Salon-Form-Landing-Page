@@ -1,0 +1,17 @@
+{
+  "name": "carlton-lead-form",
+  "version": "1.0.0",
+  "description": "Form-only landing page for Carlton Wellness Salon franchise Meta ads",
+  "private": true,
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "node --watch backend/server.js",
+    "build": "node deploy/build.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
