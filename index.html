@@ -23,6 +23,8 @@
     --paper: #ffffff;
     --muted: #6b645a;
     --line: #e4dccd;
+    --gold-light: #d8b46a;
+    --noir: #0d0c0b;
     --error: #c0392b;
     --font-head: "Playfair Display", Georgia, serif;
     --font-body: "Poppins", system-ui, sans-serif;
@@ -65,6 +67,50 @@
   form[hidden] { display: none; }
   .step { flex: 1; display: flex; flex-direction: column; padding: 22px 20px 24px; }
   .step[hidden] { display: none; }
+
+  /* Brand ambassador banner with key figures */
+  .hero {
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--noir);
+    border: 1px solid rgba(216, 180, 106, .45);
+    box-shadow: 0 14px 34px rgba(20, 18, 16, .18);
+  }
+  /* Fixed aspect ratio so the same crop (hairline to chin) shows at every screen width */
+  .hero__media { position: relative; aspect-ratio: 515 / 430; }
+  .hero__img {
+    display: block; width: 100%; height: 100%;
+    object-fit: cover; object-position: center 22%;
+  }
+  .hero__media::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(13, 12, 11, 0) 78%, var(--noir) 100%);
+  }
+  .hero__overlay { padding: 2px 18px 14px; text-align: center; }
+  .hero__eyebrow {
+    font-size: 9.5px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--gold-light);
+  }
+  .hero__caption { font-size: 12px; color: #e9e1d2; margin-top: 3px; }
+  .hero__stats {
+    display: grid; grid-template-columns: 1fr 1fr;
+    border-top: 1px solid rgba(216, 180, 106, .35);
+  }
+  .stat { padding: 16px 16px 18px; text-align: center; }
+  .stat + .stat { border-left: 1px solid rgba(216, 180, 106, .35); }
+  .stat__label {
+    display: block; min-height: 2.6em;
+    font-size: 9.5px; font-weight: 600; letter-spacing: .14em; line-height: 1.3; text-transform: uppercase;
+    color: #b3a995;
+  }
+  .stat strong {
+    display: block; margin-top: 6px;
+    font-family: var(--font-head); font-size: 28px; font-weight: 600; line-height: 1.1;
+    color: var(--gold-light);
+  }
+  .stat sup { font-size: 14px; }
+  .stat__sub { display: block; font-size: 11px; color: #e9e1d2; margin-top: 4px; }
+  .hero__note { font-size: 10.5px; color: var(--muted); line-height: 1.45; margin: 10px 2px 24px; }
 
   .step__title { font-family: var(--font-head); font-size: 22px; line-height: 1.25; margin-bottom: 6px; color: var(--gold); }
   .step__intro { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin-bottom: 22px; }
@@ -148,6 +194,29 @@
     <form id="leadForm" novalidate>
       <!-- Step 1: contact details -->
       <section class="step" data-step="1">
+        <div class="hero">
+          <div class="hero__media">
+            <img class="hero__img" src="images/brand-ambassador.jpg" alt="Mrunal Thakur, Brand Ambassador, Carlton Wellness Salon" width="515" height="644">
+          </div>
+          <div class="hero__overlay">
+            <div class="hero__eyebrow">Partner-funded · Company-operated</div>
+            <div class="hero__caption">Mrunal Thakur · Brand Ambassador</div>
+          </div>
+          <div class="hero__stats">
+            <div class="stat">
+              <span class="stat__label">Capital contribution</span>
+              <strong>~₹1 Cr</strong>
+              <span class="stat__sub">starting from</span>
+            </div>
+            <div class="stat">
+              <span class="stat__label">Minimum payout protection</span>
+              <strong>₹2L<sup>*</sup></strong>
+              <span class="stat__sub">per month</span>
+            </div>
+          </div>
+        </div>
+        <p class="hero__note">*Where contractually applicable, as per the franchise agreement. Figures are indicative and vary by city, site and format.</p>
+
         <h1 class="step__title">Apply for a Carlton Franchise</h1>
         <p class="step__intro">Fill in your details and a Carlton franchise advisor will reach out within 24 hours.</p>
 
